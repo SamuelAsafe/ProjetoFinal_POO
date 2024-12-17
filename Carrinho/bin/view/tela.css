@@ -1,0 +1,20 @@
+.fundo{
+    -fx-background-image: url(./images/fundo.jpg);
+}
+.controle{
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+
+}
+.botao{
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-cursor: pointer;
+}
+.lista{
+    -fx-border-color: black;
+}
