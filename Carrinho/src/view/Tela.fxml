@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaController">
+   <children>
+      <Pane layoutX="16.0" layoutY="328.0" onMouseClicked="#menuAdd" prefHeight="52.0" prefWidth="154.0" style="-fx-border-color: black; -fx-border-radius: 50;">
+         <children>
+            <Label layoutX="60.0" layoutY="11.0" text="Adicionar">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/add.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Pane>
+      <Pane fx:id="telaAdd" layoutX="182.0" layoutY="130.0" prefHeight="542.0" prefWidth="619.0" styleClass="controle" stylesheets="@tela.css">
+         <children>
+            <Label layoutX="134.0" layoutY="44.0" text="Adicionar Produto">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="71.0" layoutY="177.0" prefHeight="39.0" prefWidth="140.0" text="Nome">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="71.0" layoutY="257.0" prefHeight="39.0" prefWidth="140.0" text="Peso (Kg)">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="83.0" layoutY="328.0" prefHeight="39.0" prefWidth="140.0" text="Quantidade">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Slider fx:id="pesoAdicionar" layoutX="242.0" layoutY="257.0" majorTickUnit="1.0" max="5.0" min="0.1" minorTickCount="4" onMouseClicked="#pesoAtual" onMouseDragged="#pesoAtual" prefHeight="39.0" prefWidth="253.0" showTickLabels="true" showTickMarks="true" stylesheets="@tela.css" />
+            <TextField fx:id="nomeProduto" layoutX="242.0" layoutY="176.0" prefHeight="39.0" prefWidth="307.0" style="-fx-border-color: black;" styleClass="controle" stylesheets="@tela.css" />
+            <Label fx:id="pesoProduto" alignment="CENTER" layoutX="497.0" layoutY="256.0" prefHeight="30.0" prefWidth="50.0" text="0,1">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label fx:id="qtdProduto" alignment="CENTER" layoutX="497.0" layoutY="328.0" prefHeight="30.0" prefWidth="50.0" text="1">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Button fx:id="btnAdicionar" layoutX="245.0" layoutY="460.0" mnemonicParsing="false" onAction="#add" prefHeight="39.0" prefWidth="140.0" styleClass="botao" stylesheets="@tela.css" text="Adiconar">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Slider fx:id="qtdAdicionar" layoutX="242.0" layoutY="328.0" onMouseClicked="#qtdAtual" onMouseDragged="#qtdAtual" prefHeight="39.0" prefWidth="253.0" showTickLabels="true" showTickMarks="true" value="1.0" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="DISAPPEAR" />
+         </cursor>
+      </Pane>
+      <Pane fx:id="telaLista" layoutX="800.0" layoutY="130.0" prefHeight="542.0" prefWidth="381.0" styleClass="controle" stylesheets="@tela.css">
+         <children>
+            <Label layoutX="57.0" layoutY="30.0" text="Lista de Produtos">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="barraPeso" layoutX="21.0" layoutY="442.0" prefHeight="28.0" prefWidth="340.0" progress="0.0" />
+            <ProgressBar fx:id="barraUnidade" layoutX="21.0" layoutY="485.0" prefHeight="28.0" prefWidth="340.0" progress="0.0" />
+            <Label layoutX="37.0" layoutY="447.0" text="Peso" />
+            <Label layoutX="37.0" layoutY="490.0" text="Unidade" />
+            <Label layoutX="313.0" layoutY="447.0" text="/90" />
+            <Label layoutX="313.0" layoutY="490.0" text="/100" />
+            <Label fx:id="pesoTotal" alignment="CENTER_RIGHT" layoutX="262.0" layoutY="447.0" prefHeight="17.0" prefWidth="51.0" text="0.0" />
+            <Label fx:id="qtdTotal" alignment="CENTER_RIGHT" layoutX="262.0" layoutY="490.0" prefHeight="17.0" prefWidth="51.0" text="0" />
+            <HBox layoutX="21.0" layoutY="74.0" prefHeight="42.0" prefWidth="340.0" styleClass="lista" stylesheets="@tela.css">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="238.0" text="Nome do Produto">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="40.0" prefWidth="41.0" text="Peso">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="40.0" text="Un">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ScrollPane layoutX="21.0" layoutY="116.0" prefHeight="306.0" prefWidth="340.0">
+              <content>
+                <AnchorPane fx:id="rolagem" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="325.0">
+                     <children>
+                        <VBox fx:id="listaProdutos" layoutX="-1.0" prefHeight="306.0" prefWidth="327.0" styleClass="lista" stylesheets="@tela.css" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane fx:id="telaRemover" layoutX="182.0" layoutY="130.0" prefHeight="542.0" prefWidth="619.0" styleClass="controle" stylesheets="@tela.css" visible="false">
+         <children>
+            <Label layoutX="62.0" layoutY="56.0" text="Remover Ultimo Produto">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="77.0" layoutY="253.0" prefHeight="39.0" prefWidth="140.0" text="Quantidade">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Slider fx:id="qtdRemover" blockIncrement="20.0" layoutX="245.0" layoutY="252.0" onMouseClicked="#removerQtdAtual" onMouseDragged="#removerQtdAtual" prefHeight="39.0" prefWidth="253.0" showTickLabels="true" showTickMarks="true" value="1.0" />
+            <Label fx:id="qtdProdutoRemover" layoutX="514.0" layoutY="252.0" prefHeight="30.0" prefWidth="44.0" text="1">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Button fx:id="btnRemover" layoutX="240.0" layoutY="448.0" mnemonicParsing="false" onAction="#Remover" prefHeight="39.0" prefWidth="140.0" styleClass="botao" stylesheets="@tela.css" text="Remover">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER_RIGHT" layoutX="77.0" layoutY="165.0" prefHeight="39.0" prefWidth="140.0" text="Produto">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomeProdutoRemover" editable="false" layoutX="239.0" layoutY="165.0" prefHeight="39.0" prefWidth="307.0" style="-fx-border-color: black;" styleClass="controle" stylesheets="@tela.css">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+            </TextField>
+            <Label layoutX="99.0" layoutY="350.0" prefHeight="39.0" prefWidth="140.0" text="Por Produto" wrapText="true">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="pesoUnProduto" alignment="CENTER" layoutX="110.0" layoutY="393.0" prefHeight="30.0" prefWidth="90.0" text="0.1 Kg">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="239.0" layoutY="308.0" prefHeight="39.0" prefWidth="140.0" text="Peso (Kg):" wrapText="true">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="239.0" layoutY="350.0" prefHeight="39.0" prefWidth="140.0" text="Total" wrapText="true">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="379.0" layoutY="350.0" prefHeight="39.0" prefWidth="140.0" text="A Remover" wrapText="true">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="pesoTotalProduto" alignment="CENTER" layoutX="264.0" layoutY="393.0" prefHeight="30.0" prefWidth="90.0" text="10 Kg">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="pesoProdutoRemover" alignment="CENTER" layoutX="424.0" layoutY="393.0" prefHeight="30.0" prefWidth="90.0" text="1 Kg">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="16.0" layoutY="412.0" onMouseClicked="#menuRemover" prefHeight="52.0" prefWidth="154.0" style="-fx-border-color: black; -fx-border-radius: 50;">
+         <children>
+            <Label layoutX="60.0" layoutY="11.0" text="Remover">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/remove.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+   </children>
+</Pane>
